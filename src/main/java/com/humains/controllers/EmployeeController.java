@@ -88,6 +88,7 @@ public class EmployeeController {
         model.addAttribute("departements", departementService.findAll());
         model.addAttribute("remunerations", remunerationService.findAll());
         model.addAttribute("employee", employee);
+        model.addAttribute("employees",employeeService.notUsedEmployees());
         return "home/employee-edite";
     }
 
@@ -176,4 +177,15 @@ public class EmployeeController {
     }
 
 
+    @GetMapping(value = {"/disconnecte"})
+    public String disconnect( ModelMap model ,Employee user, HttpSession session){
+
+        session.removeAttribute("fullName");
+        session.removeAttribute("role");
+        session.removeAttribute("ConnectedUser");
+        session.removeAttribute("image");
+        session.invalidate();
+        model.addAttribute("user",user);
+        return "redirect:/";
+    }
 }

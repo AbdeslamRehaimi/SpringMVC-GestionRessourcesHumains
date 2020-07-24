@@ -79,7 +79,7 @@
                 <br><br><br>
                 <div >
                     <a style="float: left;" class="btn btn-danger" href="${pageContext.request.contextPath}/employee/managers" >Returne</a>
-                    <a style="float: right;" class="btn btn-primary" href="${pageContext.request.contextPath}/employee/managerAdd/${employee.id}" >Ajouter un membre</a>
+                    <a style="float: right;" class="btn btn-primary" href="${pageContext.request.contextPath}/employee/home" >Liste Employees</a>
                 </div>
                 <div class="card" style="margin-top: 50px">
                     <div class="card-header" style="text-align: center"><h1 style="color: black;font-family: auto;">${employee.email}</h1></div>
@@ -166,7 +166,7 @@
                         </div>
                     </div>
                     <div class="text-center" style="text-align: center!important;">
-                        <p style="color: #20560a; font-family: initial;">Manager : ${employee.nom} ${employee.prenom} Rejoindre le: ${employee.created} </p>
+                        <p style="color: #20560a; font-family: initial;">Employee : ${employee.nom} ${employee.prenom} Rejoindre le: ${employee.created} </p>
                     </div>
                 </div>
             </div>

@@ -182,7 +182,6 @@
                                 <form:errors path="remuneration" cssStyle="color: red"/>
                             </div>
 
-
                             <div class="form-group col-sm-12  ">
                                 <label>Image</label>
                                 <form:select path="image" name="image" class="form-control ">

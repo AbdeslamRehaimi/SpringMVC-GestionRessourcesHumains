@@ -20,7 +20,7 @@
             <ul class=" navbar-nav my-2 my-lg-0">
                 <li class="nav-item" style="text-align: center;">
                     <a style="color: white; margin-bottom: -12px;" class="nav-link aColor">${fullName}</a>
-                    <a class="small" href="${pageContext.request.contextPath}/disconnecte">Disconnecte</a>
+                    <a class="small" href="${pageContext.request.contextPath}/employee/disconnecte">Disconnecte</a>
                 </li>
                 <li class="nav-item">
                         <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

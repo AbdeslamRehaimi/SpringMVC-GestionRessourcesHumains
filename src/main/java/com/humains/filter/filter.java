@@ -33,18 +33,14 @@ public class filter implements Filter {
         System.out.println("URL that is Mapped by Filter is: "+currentPath);
         //resp.sendRedirect(req.getContextPath() + "/");
         if (sessionUser != null) {
-            if (currentPath.contains("/login")) {
-
-                res1.sendRedirect(req1.getContextPath() + "/article/");
-            } else if (currentPath.contains("/register"))  {
-
-                res1.sendRedirect(req1.getContextPath() + "/article/");
+            if (currentPath.contains("/login") ) {
+                res1.sendRedirect(req1.getContextPath() + "/employee/home");
             } else {
                 chain.doFilter(request, response);
                 logger.info("Filter works like a charm !\n");
             }
         } else {
-            if (currentPath.contains("article") || currentPath.contains("user") || currentPath.contains("tag")  || webOrigen.startsWith("/*")) {
+            if ( currentPath.contains("/employee/home") || webOrigen.startsWith("/*")  ) {
                 res1.sendRedirect(req1.getContextPath() + "/");
                 logger.info("Filter redirected you!");
             } else {
