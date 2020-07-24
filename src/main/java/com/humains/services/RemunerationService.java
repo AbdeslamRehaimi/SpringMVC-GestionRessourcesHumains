@@ -1,5 +1,6 @@
 package com.humains.services;
 
+import com.humains.entities.Departement;
 import com.humains.entities.Remuneration;
 import com.humains.exceptions.ResourceNotFoundException;
 import org.springframework.data.domain.Page;
@@ -10,6 +11,7 @@ import java.util.Optional;
 public interface RemunerationService {
 
     Page<Remuneration> findAllRemunerations (Optional<Integer> pageNo, Integer pageSize, String sortBy);
+    List<Remuneration> findAll();
     List<Remuneration> getAllRemunerations();
     Remuneration findById(long id) throws ResourceNotFoundException;
     void save(Remuneration remuneration);

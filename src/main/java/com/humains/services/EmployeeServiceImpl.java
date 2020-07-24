@@ -47,7 +47,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     @Transactional
-    public List<Employee> findAllSous_jacents(short id) {
+    public List<Employee> findAllSous_jacents(long id) {
         return employeeRepository.findBySous_jacents(id);
     }
 
@@ -82,4 +82,18 @@ public class EmployeeServiceImpl implements EmployeeService{
     public boolean findEmployeeByEmailAndPassword(String email, String password) {
         return employeeRepository.findByEmailAndPassword(email, password) != null;
     }
+
+    @Override
+    @Transactional
+    public Page<Employee> findManagers(Optional<Integer> pageNo, Integer pageSize, String sortBy) {
+        Pageable paging = PageRequest.of(0, pageSize, Sort.by(sortBy));
+        if(pageNo.isPresent()){
+            paging = PageRequest.of(pageNo.get(), pageSize, Sort.by(sortBy));
+        }
+        return employeeRepository.findManagers(paging);
+    }
+
+
+
+
 }

@@ -4,6 +4,8 @@ import com.humains.validators.PasswordConf;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Type;
+import org.hibernate.validator.constraints.UniqueElements;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -31,13 +33,13 @@ public class Employee implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
 
-    @Column(name="nom", nullable = false, unique = true, length = 150 )
+    @Column(name="nom", nullable = false, length = 150 )
     @NotBlank(message = "Vous devez indiquer votre nom !")
     @Size(min=3, message = "minimum 3 lettre")
     @NotNull
     String nom;
 
-    @Column(name="prenom", nullable = false, unique = true, length = 150 )
+    @Column(name="prenom", nullable = false, length = 150 )
     @NotBlank(message = "Vous devez indiquer votre prenom !")
     @Size(min=3, message = "minimum 3 lettre")
     @NotNull
@@ -55,7 +57,7 @@ public class Employee implements Serializable {
     String tel;
 
 
-    @Column(name="email", nullable = false, unique = true)
+    @Column(name="email", nullable = false)
     @NotBlank(message = "Vous devez indiquer votre email !")
     @Email
     @NotNull
@@ -80,6 +82,7 @@ public class Employee implements Serializable {
     double salaire;
 
     @Column(name = "hire_date" )
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date hireDate;
 
 
@@ -101,16 +104,11 @@ public class Employee implements Serializable {
     Employee manager;
 
     @OneToMany(mappedBy="manager")
-    Set<Employee> sous_jacents = new HashSet<>();
+    List<Employee> sous_jacents;
+    //Set<Employee> sous_jacents = new HashSet<>();
 
     @ManyToOne
     Remuneration remuneration;
-
-
-
-
-
-
 
 
     @Column(name="created")

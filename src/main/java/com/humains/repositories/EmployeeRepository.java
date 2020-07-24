@@ -16,21 +16,23 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     Page<Employee> findAll(Pageable pageable);
 
     @Query("select e from Employee e where e.manager.id=:id")
-    public List<Employee> findBySous_jacents(@Param("id") short id);
+    List<Employee> findBySous_jacents(@Param("id") long id);
 
 
     @Query("select e from Employee e where e.cin=:cin")
-    public Employee findByCin(@Param("cin") String cin);
+    Employee findByCin(@Param("cin") String cin);
 
     @Query("select e from Employee e where e.email=:email")
-    public Employee findByEmail(@Param("email") String email);
+    Employee findByEmail(@Param("email") String email);
 
     @Query("select e from Employee e where e.tel=:tel")
-    public Employee findByTel(@Param("tel") String tel);
+    Employee findByTel(@Param("tel") String tel);
 
     @Query("select e from Employee e where e.email=:email and e.password=:password")
-    public Employee findByEmailAndPassword(@Param("email") String tel, @Param("password") String password);
+    Employee findByEmailAndPassword(@Param("email") String tel, @Param("password") String password);
 
+    @Query("select DISTINCT e.manager from Employee e")
+    Page<Employee> findManagers(Pageable pageable);
 
 
 }

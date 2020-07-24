@@ -6,6 +6,7 @@ import java.util.List;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -26,13 +27,13 @@ public class Departement implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
 
-    @Column(name="nom", nullable = false, unique = true, length = 150 )
+    @Column(name="nom", nullable = false, length = 150 )
     @NotBlank(message = "Vous devez indiquer le nom de ce departememt !")
     @Size(min=3, message = "minimum 3 lettre")
     @NotNull
     String nom;
 
-    @Column(name="type", nullable = false, unique = true, length = 150 )
+    @Column(name="type", nullable = false,  length = 150 )
     @NotBlank(message = "Vous devez indiquer le type de ce departememt !")
     @Size(min=3, message = "minimum 3 lettre")
     @NotNull

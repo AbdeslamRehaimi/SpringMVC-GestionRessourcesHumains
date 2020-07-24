@@ -1,5 +1,6 @@
 package com.humains.services;
 
+import com.humains.entities.Departement;
 import com.humains.entities.Remuneration;
 import com.humains.exceptions.ResourceNotFoundException;
 import com.humains.repositories.EmployeeRepository;
@@ -35,6 +36,12 @@ public class RemunerationServiceImpl implements RemunerationService {
 
     @Override
     @Transactional
+    public List<Remuneration> findAll() {
+        return remunerationRepository.findAll();
+    }
+
+    @Override
+    @Transactional
     public List<Remuneration> getAllRemunerations() {
         return remunerationRepository.findAll();
     }
@@ -60,4 +67,6 @@ public class RemunerationServiceImpl implements RemunerationService {
     public void deleteById(long id) {
         remunerationRepository.deleteById(id);
     }
+
+
 }
