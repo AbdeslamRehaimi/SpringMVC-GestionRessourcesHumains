@@ -64,14 +64,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-
-                        <input type="button" style="float: left; border-radius: 50px;" value="Nouveau Departement"
-                               onclick="window.location.href='${pageContext.request.contextPath}/departement/add'; return false;"
-                               class="btn btn-primary" />
-
-                        <input type="button" style="text-align: center; border-radius: 50px;" value="Consultation Renumeration"
-                               onclick="window.location.href='${pageContext.request.contextPath}/user/list'; return false;"
-                               class="btn btn-primary" />
+                <input type="button" style="float: left; border-radius: 50px;" value="Nouveau Departement"
+                       onclick="window.location.href='${pageContext.request.contextPath}/departement/add'; return false;"
+                       class="btn btn-primary" />
 
 
                 <input type="button" style="float: right;border-radius: 50px;" value="Liste Employees"

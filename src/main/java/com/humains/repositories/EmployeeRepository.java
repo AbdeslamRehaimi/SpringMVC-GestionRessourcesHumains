@@ -35,4 +35,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     Page<Employee> findManagers(Pageable pageable);
 
 
+    @Query("select e from Employee e where e.manager.id is null")
+    List<Employee> notUsedEmployees( );
+
 }

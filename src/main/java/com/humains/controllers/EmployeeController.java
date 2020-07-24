@@ -142,6 +142,13 @@ public class EmployeeController {
         return "home/employee-edite";
     }
 
+    @RequestMapping("/employeeShow/{id}")
+    public String viewEmp(@PathVariable("id") long id, ModelMap model) throws ResourceNotFoundException {
+        model.addAttribute("employee",employeeService.findById(id));
+
+        return "home/employee-show";
+    }
+
 
     @GetMapping(value = {"/managers","/page/{id}"})
     public String managers(@PathVariable(name="id",required = false) Optional<Integer> id, ModelMap model)
@@ -152,11 +159,21 @@ public class EmployeeController {
         return "managers/managers-list";
     }
 
-    @RequestMapping("/manager/{email}")
-    public String view(@PathVariable("email") String  email, ModelMap model){
-        model.addAttribute("manager",employeeService.findEmployeeByEmail(email));
-        model.addAttribute("sousjacent",employeeService.findAllSous_jacents(employeeService.findEmployeeByEmail(email).getId()));
+    @RequestMapping("/manager/{id}")
+    public String view(@PathVariable("id") long id, ModelMap model) throws ResourceNotFoundException {
+        model.addAttribute("manager",employeeService.findById(id));
+        model.addAttribute("sousjacent",employeeService.findAllSous_jacents(id));
+
         return "managers/managers-show";
     }
+
+
+    @RequestMapping("/managerAdd/{id}")
+    public String addToManager(@PathVariable("id") long id, ModelMap model) throws ResourceNotFoundException {
+        model.addAttribute("manager",employeeService.findById(id));
+        model.addAttribute("employees",employeeService.notUsedEmployees());
+        return "managers/managers-edite";
+    }
+
 
 }

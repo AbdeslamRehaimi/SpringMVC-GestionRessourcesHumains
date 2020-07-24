@@ -126,9 +126,9 @@
                             <div class="form-group col-md-6   ">
                                 <label>Grade</label>
                                 <form:select path="grade" name="grade" class="form-control ">
-                                    <form:option value="A">A</form:option>
-                                    <form:option value="B">B</form:option>
-                                    <form:option value="C">C</form:option>
+                                    <form:option value="A">A + 100 DH</form:option>
+                                    <form:option value="B">B + 50 DH</form:option>
+                                    <form:option value="C">C + 25 DH</form:option>
                                 </form:select>
                                 <form:errors path="grade" cssStyle="color: red"/>
                             </div>
@@ -163,7 +163,7 @@
                                     <form:option value="Normal">Normal</form:option>
                                     <form:option value="Admin">Admin</form:option>
                                 </form:select>
-                                <form:errors path="role" class="invalid-feedback" cssStyle="color: red"/>
+                                <form:errors path="role" cssStyle="color: red"/>
                             </div>
 
                             <div class="form-group col-sm-12">
@@ -171,7 +171,7 @@
                                 <form:select path="departement.id" class="form-control">
                                     <form:options items="${departements}" id="id" itemValue="id" itemLabel="nom"/>
                                 </form:select>
-                                <form:errors path="departement" class="invalid-feedback" cssStyle="color: red"/>
+                                <form:errors path="departement"  cssStyle="color: red"/>
                             </div>
 
                             <div class="form-group col-sm-12">
@@ -179,7 +179,7 @@
                                 <form:select path="remuneration.id" class="form-control">
                                     <form:options items="${remunerations}" id="id" itemValue="id" itemLabel="type"/>
                                 </form:select>
-                                <form:errors path="remuneration" class="invalid-feedback" cssStyle="color: red"/>
+                                <form:errors path="remuneration" cssStyle="color: red"/>
                             </div>
 
 

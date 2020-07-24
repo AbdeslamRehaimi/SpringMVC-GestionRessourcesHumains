@@ -21,6 +21,7 @@ public interface EmployeeService {
      boolean findEmployeeByEmailAndPassword(String email, String password);
 
      Page<Employee> findManagers(Optional<Integer> pageNo, Integer pageSize, String sortBy);
+     List<Employee> notUsedEmployees();
 
 
 }

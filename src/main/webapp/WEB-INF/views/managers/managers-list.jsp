@@ -58,116 +58,6 @@
 
 
 
-
-
-
-
-
-
-        .block-update-card {
-            height: 100%;
-            border: 1px #FFFFFF solid;
-            width: 380px;
-            float: left;
-            margin-left: 10px;
-            margin-top: 0;
-            padding: 0;
-            box-shadow: 1px 1px 8px #d8d8d8;
-            background-color: #FFFFFF;
-        }
-        .block-update-card .h-status {
-            width: 100%;
-            height: 7px;
-            background: repeating-linear-gradient(45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
-        }
-        .block-update-card .v-status {
-            width: 5px;
-            height: 80px;
-            float: left;
-            margin-right: 5px;
-            background: repeating-linear-gradient(45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
-        }
-        .block-update-card .update-card-MDimentions {
-            width: 80px;
-            height: 80px;
-        }
-        .block-update-card .update-card-body {
-            margin-top: 10px;
-            margin-left: 5px;
-        }
-        .block-update-card .update-card-body h4 {
-            color: #737373;
-            font-weight: bold;
-            font-size: 13px;
-        }
-        .block-update-card .update-card-body p {
-            color: #737373;
-            font-size: 12px;
-        }
-        .block-update-card .card-action-pellet {
-            padding: 5px;
-        }
-        .block-update-card .card-action-pellet div {
-            margin-right: 10px;
-            font-size: 15px;
-            cursor: pointer;
-            color: #dddddd;
-        }
-        .block-update-card .card-action-pellet div:hover {
-            color: #999999;
-        }
-        .block-update-card .card-bottom-status {
-            color: #a9a9aa;
-            font-weight: bold;
-            font-size: 14px;
-            border-top: #e0e0e0 1px solid;
-            padding-top: 5px;
-            margin: 0px;
-        }
-        .block-update-card .card-bottom-status:hover {
-            background-color: #dd4b39;
-            color: #FFFFFF;
-            cursor: pointer;
-        }
-
-        /*
-        Creating a block for social media buttons
-        */
-        .card-body-social {
-            font-size: 30px;
-            margin-top: 10px;
-        }
-        .card-body-social .git {
-            color: black;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-        .card-body-social .twitter {
-            color: #19C4FF;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-        .card-body-social .google-plus {
-            color: #DD4B39;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-        .card-body-social .facebook {
-            color: #49649F;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-        .card-body-social .linkedin {
-            color: #007BB6;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-
-        .music-card {
-            background-color: green;
-        }
-
-
     </style>
 </head>
 <body>
@@ -195,13 +85,9 @@
                 <input type="button" style="float: left; border-radius: 50px;" value="Nouveau Manager"
                        onclick="window.location.href='${pageContext.request.contextPath}/employee/add'; return false;"
                        class="btn btn-primary" />
-                <input type="button" style="text-align: center; border-radius: 50px;" value="Nouveau Sou jascent"
-                       onclick="window.location.href='${pageContext.request.contextPath}/departement/list'; return false;"
-                       class="btn btn-primary" />
-
 
                 <input type="button" style="float: right;border-radius: 50px;" value="Consultation Employees"
-                       onclick="window.location.href='${pageContext.request.contextPath}/employees/home'; return false;"
+                       onclick="window.location.href='${pageContext.request.contextPath}/employee/home'; return false;"
                        class="btn btn-primary" />
 
             </div>
@@ -217,36 +103,6 @@
                                     <div style="color: black" class="panel-title">Liste Employees</div>
                                 </div>
                                 <div class="panel-body">
-
-                                    <div class="col-md-4">
-                                        <!--Wanna Call Someone :P -->
-                                        <div class="media block-update-card">
-                                            <a class="pull-left" href="#">
-                                                <img class="media-object update-card-MDimentions" src="http://3.bp.blogspot.com/-IbEOTNtCMyU/TfCAdHaAxEI/AAAAAAAAA8U/EATib38SSAM/s320/joe-mcelderry.jpg" alt="...">
-                                            </a>
-                                            <div class="media-body update-card-body">
-                                                <h4 class="media-heading">Manning Hilton</h4>
-                                                <div class="btn-toolbar card-body-social" role="toolbar">
-                                                    <div class="btn-group fa fa-github-alt git"></div>
-                                                    <div class="btn-group linkedin fa fa-linkedin-square"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <!--Simple Card with Status Highlight-->
-                                        <div class="block-update-card status">
-                                            <div class="h-status">
-                                            </div>
-                                            <div class="update-card-body">
-                                                <h4>Vinothbabu K</h4>
-                                                <p>This is me. I am a Good Boy.This is the body content of this media.This can be
-                                                    used as an update panel.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
 
                                     <table class="table table-bordered table-hover  ">
                                         <tr>
@@ -279,7 +135,7 @@
                                                 <td>${item.email} </td>
                                                 <td>${item.hireDate}</td>
                                                 <td>
-                                                    <a href="${pageContext.request.contextPath}/employee/manager/${item.email}" class="btn btn-success">Consulter</a>
+                                                    <a href="${pageContext.request.contextPath}/employee/manager/${item.id}" class="btn btn-success">Consulter <span  class="fa fa-connectdevelop"></span></a>
                                                 </td>
                                             </tr>
 

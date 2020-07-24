@@ -93,7 +93,10 @@ public class EmployeeServiceImpl implements EmployeeService{
         return employeeRepository.findManagers(paging);
     }
 
-
+    @Override
+    public List<Employee> notUsedEmployees() {
+        return employeeRepository.notUsedEmployees();
+    }
 
 
 }

@@ -43,17 +43,7 @@
 <body>
 
 <div class="fluid">
-    <c:choose>
-        <c:when test="${role == 'Admin'}">
             <jsp:include page="../includes/main-navbar.jsp" />
-        </c:when>
-        <c:when test="${role == 'Writer'}">
-            <jsp:include page="../includes/main-navbar.jsp" />
-        </c:when>
-        <c:otherwise>
-            <jsp:include page="../includes/visitor-navbar.jsp" />
-        </c:otherwise>
-    </c:choose>
 
     <div class="jumbotron jumbotron-fluid bg-cool-blue">
         <div class="container">
@@ -74,7 +64,7 @@
                 <br><br><br>
 
                 <div class="card" style="margin-top: 25px;margin-bottom: 50px;">
-                    <div class="card-header">Tag</div>
+                    <div class="card-header">Departement</div>
                     <form:form method="post" action="${pageContext.request.contextPath}/departement/save" modelAttribute="departement">
                         <div class="card-body row">
                             <div class="form-group col-sm-12">
