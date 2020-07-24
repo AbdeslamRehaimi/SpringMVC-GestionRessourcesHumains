@@ -161,7 +161,7 @@
                                                     </td>
                                                     <td>
                                                         <a href="${pageContext.request.contextPath}/employee/delete/${pageable.number}/${item.id}" class="btn btn-danger"
-                                                           onclick="if (!(confirm('Voulez vous vraiment supprimer ce Artiste?'))) return false">Delete</a>
+                                                           onclick="if (!(confirm('Voulez vous vraiment supprimer cette employee?'))) return false">Delete</a>
                                                         <a href="${pageContext.request.contextPath}/employee/add/${item.id}" class="btn btn-success">Modifier</a>
                                                     </td>
                                                 </tr>
@@ -202,7 +202,7 @@
                 </div>
         </div>
     </div>
-
+    <jsp:include page="../includes/footer.jsp" />
 </div>
 </body>
 </html>

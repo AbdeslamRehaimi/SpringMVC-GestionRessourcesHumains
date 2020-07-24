@@ -1,6 +1,9 @@
 package com.humains.entities;
 
+import com.humains.validators.CinUnique;
+import com.humains.validators.EmailUnique;
 import com.humains.validators.PasswordConf;
+import com.humains.validators.TelUnique;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Type;
@@ -26,6 +29,9 @@ import java.util.Set;
 @Entity
 @Table(name = "employees")
 @PasswordConf(message = "Les deux password non identique !" ) //I made this validator to verifiy the password and confirmation pass are the same for inscription needs
+@CinUnique //I made this validator to verify if its already exist
+@EmailUnique //I made this validator to verify if its already exist
+@TelUnique //I made this validator to verify if its already exist
 public class Employee implements Serializable {
     static final long serialVersionUID = 1L;
 

@@ -48,7 +48,7 @@ public class EmployeeController {
     @GetMapping(value = {"/home","/page/{id}"})
     public String home(@PathVariable(name="id",required = false) Optional<Integer> id, ModelMap model)
     {
-        Page<Employee> pages = employeeService.findAllEmployees(id, 4, "id");
+        Page<Employee> pages = employeeService.findAllEmployees(id, 50, "id");
         model.addAttribute("pageable", pages);
         return "home/employee-list";
     }
@@ -154,7 +154,7 @@ public class EmployeeController {
     @GetMapping(value = {"/managers","/page/{id}"})
     public String managers(@PathVariable(name="id",required = false) Optional<Integer> id, ModelMap model)
     {
-        Page<Employee> pages = employeeService.findManagers(id, 4, "id");
+        Page<Employee> pages = employeeService.findManagers(id, 50, "id");
         model.addAttribute("pageable", pages);
         System.out.println("-------------");
         return "managers/managers-list";
@@ -170,11 +170,27 @@ public class EmployeeController {
 
 
     @RequestMapping("/managerAdd/{id}")
-    public String addToManager(@PathVariable("id") long id, ModelMap model) throws ResourceNotFoundException {
-        model.addAttribute("manager",employeeService.findById(id));
+    public String addToManager(@PathVariable("id") long id, ModelMap model, Employee employee) throws ResourceNotFoundException {
+        model.addAttribute("emp",employeeService.findById(id));
+        model.addAttribute("sousJasc",employee);
         model.addAttribute("employees",employeeService.notUsedEmployees());
         return "managers/managers-edite";
     }
+
+
+
+
+
+    @PostMapping("/saveSoujasc")
+    public String addSoujasc(@Valid @ModelAttribute("sousJasc") Employee employee, BindingResult result, ModelMap model, HttpSession session) throws ResourceNotFoundException {
+
+        session.setAttribute("pass", null);
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+
+        employeeService.ajouterEmployee(employee);
+        return "redirect:/employee/home";
+    }
+
 
 
     @GetMapping(value = {"/disconnecte"})
@@ -188,4 +204,7 @@ public class EmployeeController {
         model.addAttribute("user",user);
         return "redirect:/";
     }
+
+
+
 }

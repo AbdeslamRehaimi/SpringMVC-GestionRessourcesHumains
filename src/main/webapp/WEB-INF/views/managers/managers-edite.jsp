@@ -61,15 +61,15 @@
     <div class="jumbotron jumbotron-fluid bg-cool-blue">
         <div class="container">
             <h1 class="display-4 aColor">
-                Manager : ${manager.nom} ${manager.prenom}
+                Manager : ${emp.nom} ${emp.prenom}
             </h1>
         </div>
     </div>
 
     <div class="user-header">
         <div class="user-profile">
-            <img src="<c:url value="/resources/images/users/${manager.image}"/>" class="user">
-            <h1>${manager.nom} ${manager.prenom}</h1>
+            <img src="<c:url value="/resources/images/users/${emp.image}"/>" class="user">
+            <h1>${emp.nom} ${emp.prenom}</h1>
         </div>
     </div>
 
@@ -81,38 +81,37 @@
                     <a style="float: left;" class="btn btn-danger" href="${pageContext.request.contextPath}/employee/managers" >Returne</a>
                 </div>
                 <div class="card" style="margin-top: 50px">
-                    <div class="card-header" style="text-align: center"><h1 style="color: black;font-family: auto;">${manager.email}</h1></div>
+                    <div class="card-header" style="text-align: center"><h1 style="color: black;font-family: auto;">${emp.email}</h1></div>
 
                                 <hr>
                                 <br>
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-6 offset-3 ">
-                                            <div >
-                                                <a style="float: left;" class="btn btn-danger" href="${pageContext.request.contextPath}/departement/list" >Returne</a>
+                                            <hr>
+                                            <div class="nav-item" style="background-color: #6b3c05;height: 50px;text-align: center;">
+                                                <a class="nav-link" id="product-details-area3-tab" style="color: white;" data-toggle="tab" href="#product-details-area3" role="tab" aria-controls="product-details-area3" aria-selected="false">Ajouter des membre a l'equiope de <b>${emp.nom} ${emp.prenom}</b></a>
                                             </div>
                                             <br><br><br>
 
                                             <div class="card" style="margin-top: 25px;margin-bottom: 50px;">
                                                 <div class="card-header">Ajouter un membre</div>
-                                                <form:form method="post" action="${pageContext.request.contextPath}/departement/save" modelAttribute="departement">
+                                                <form:form method="post" action="${pageContext.request.contextPath}/managers/save" modelAttribute="sousJasc">
                                                     <div class="card-body row">
                                                         <div class="form-group col-sm-12">
-                                                            <form:input path="id" type="hidden" />
-                                                            <label>Nom</label>
-                                                            <form:input path="nom"  type="text" name="nom" class="form-control"></form:input>
-                                                            <form:errors path="nom"  cssStyle="color: red" />
+                                                            <label>Manager</label>
+                                                            <input path="nom"  type="text" name="nom" value="${emp.nom}" class="form-control" disabled="true"></input>
                                                         </div>
 
                                                         <div class="form-group col-md-12 ">
                                                             <label>Type</label>
-                                                            <form:select path="manager"  class="form-control" id="select">
+                                                            <form:select path="id"  class="form-control" id="select">
                                                                 <option value="">Selectioner Un Employer  </option>
                                                                 <c:forEach items="${employees}"   var="emp">
                                                                     <option value="${emp.id}"> ${emp.nom}  </option>
                                                                 </c:forEach>
                                                             </form:select>
-                                                            <form:errors path="manager" cssClass="alert-danger" />
+                                                            <form:errors path="id" cssClass="alert-danger" />
                                                         </div>
 
                                                         <div class="form-group col-md-12">
@@ -126,7 +125,7 @@
                                 </div>
 
                     <div class="text-center" style="text-align: center!important;">
-                        <p style="color: #20560a; font-family: initial;">Manager : ${manager.nom} ${manager.prenom} Rejoindre le: ${manager.created} </p>
+                        <p style="color: #20560a; font-family: initial;">Manager : ${emp.nom} ${emp.prenom} Rejoindre le: ${emp.created} </p>
                     </div>
                 </div>
             </div>

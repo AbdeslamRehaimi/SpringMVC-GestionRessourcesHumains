@@ -93,7 +93,7 @@
                                     <td>${item.created} </td>
                                     <td>
                                                 <a href="${pageContext.request.contextPath}/departement/delete/${pageable.number}/${item.id}" class="btn btn-danger"
-                                                   onclick="if (!(confirm('Voulez vous vraiment supprimer ce Tag?'))) return false">Delete</a>
+                                                   onclick="if (!(confirm('Voulez vous vraiment supprimer ce Departement?'))) return false">Delete</a>
                                                 <a href="${pageContext.request.contextPath}/departement/add/${item.id}" class="btn btn-success">Modifier</a>
 
                                     </td>

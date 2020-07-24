@@ -38,7 +38,7 @@ public class DepartementController {
     @GetMapping(value = {"/list","/page/{id}"})
     public String home(@PathVariable(name="id",required = false) Optional<Integer> id, ModelMap model)
     {
-        Page<Departement> pages = departementService.findAllDepartements(id, 4, "id");
+        Page<Departement> pages = departementService.findAllDepartements(id, 50, "id");
         model.addAttribute("pageable", pages);
         return "department/departement-list";
     }
